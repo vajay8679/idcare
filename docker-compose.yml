@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./BACKEND
+      dockerfile: Dockerfile
+    image: idcare/server:latest
+    container_name: idcare-server
+    ports:
+      - 80:80
+    volumes:
+      - ./BACKEND:/var/www/html
+    networks:
+      - idcare
+
+# Docker Networks
+networks:
+  idcare:
+    driver: bridge
+
+# Volumes
+volumes:
+  # Volume for DB
+  idcaredata:
+    driver: local

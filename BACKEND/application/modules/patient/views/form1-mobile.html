@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgb(240, 238, 238);
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #009ffc;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .lab {
+            font-size: 18px;
+            padding-left: 25px;
+            padding-top: 29px;
+
+
+        }
+
+        .labs {
+
+
+            padding-left: 25px;
+            padding-top: 12px;
+            color: rgb(0, 0, 0);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 15px;
+        }
+
+        .box-0 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 391px;
+            margin-top: 7px;
+            border-radius: 20px;
+        }
+
+        .box-1 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 288px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .box-2 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 328px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .box-3 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 400px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .box-4 {
+
+            margin-top: 20px;
+        }
+
+        .fonts {
+            width: 90%;
+            color: rgb(165, 165, 165);
+            font-size: 12px;
+            margin-left: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .font {
+            margin-left: 20px;
+            width: 90%;
+            color: rgb(165, 165, 165);
+            font-size: 12px;
+            margin-left: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .containers {
+            display: block;
+            position: relative;
+            padding-left: 36px;
+            padding-top: 0px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            width: 220px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+        }
+
+        /* Hide the browser's default checkbox */
+        .containers input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 4px;
+            left: 1px;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .containers:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .containers input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .containers input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .containers .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .containere {
+            width: 92px;
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default radio button */
+        .containere input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Create a custom radio button */
+        .checkmarks {
+            position: absolute;
+            top: 0;
+            left: 3px;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .containere:hover input~.checkmarks {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .containere input:checked~.checkmarks {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmarks:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .containere input:checked~.checkmarks:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .containere .checkmarks:after {
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .ufont {
+            font-size: 22px;
+            margin-left: 3px;
+        }
+
+        .container-fluid {
+            background-color: #f0ebeb;
+        }
+
+        .font1 {
+            font-size: 18px;
+            font-weight: bold;
+
+        }
+
+        .wfx {
+            margin-left: -131px;
+            margin-top: 185px;
+        }
+
+        .headline {
+            text-align: center;
+            font-size: 20px;
+            padding-top: 20px;
+        }
+
+        .font-o {
+            font-size: 15px;
+        }
+
+        .checkbox-f {
+            font-size: 15px;
+        }
+
+        .accu {
+            font-size: 12px;
+        }
+
+        .checkbox-s {
+            font-size: 12px;
+        }
+
+        .checkbox-inlines {
+            margin-bottom: 12px;
+        }
+
+        .dom {
+            background-color: white;
+            margin-top: -17px;
+            margin-bottom: 20px;
+            margin-left: 0px;
+            width: 100%;
+            border-bottom: 1px solid #dee2e6;
+            border-left: 1px solid #dee2e6;
+            border-right: 1px solid #dee2e6;
+        }
+
+        .box-5 {
+            background: linear-gradient(to bottom, #13295e 0%, #850947 100%);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .box-5:hover {
+            background-color: #45a049;
+        }
+
+        .fontsm {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 42px;
+
+        }
+
+        .containers {
+            display: block;
+            position: relative;
+            padding-left: 36px;
+            padding-top: 0px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            width: 220px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+        }
+
+        /* Hide the browser's default checkbox */
+        .containers input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 4px;
+            left: 1px;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .containers:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .containers input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .containers input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .containers .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .radb {
+            width: 152px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <form action="/action_page.php">
+            <h6 class="fontsm">Loeb's Minimum Criteria for Initiating Antibiotic Therapy </h6>
+
+            <form>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <label for="validationDefault03" class="font1">Name/MR number</label>
+                        <input type="text" class="form-control" id="validationDefault03" placeholder="Patient Name....."
+                            required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="validationDefault04" class="font1">Location</label>
+                        <input type="text" class="form-control" id="validationDefault04" placeholder="Location..."
+                            required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="validationDefault05" class="font1">Date</label>
+                        <!-- <p style="margin-top: 5px;" type="text" class="form-control" id="validationDefault05"></p> -->
+                        <input type="text" class="form-control" id="validationDefault05" placeholder="MM/DD/YYYY"
+                            required>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-bordered bg-white ">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th style="width: 25%;">Suspected Infection Syndrome</th>
+                        <th style="width: 50%;">Minimum Criteria for Starting Antibiotic
+                            Therapy</th>
+                        <th style="padding-right: 118px; width: 25%;">criteria</th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Urinary Tract Infection
+                                    <ul>
+                                        <li>
+                                            WITHOUT Catheter
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width: 50%; font-size: 15px;">Either one of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Acute dysuria,
+                                    OR</span>
+                            </label><br>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Temp &gt;37.9
+                                    &#8451;
+                                    (100 &#8457;) or 1.5 &#8451; (2.4 &#8457;) above baseline, AND
+                                    &#8805;1 of the following new or worsening symptoms</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Urgency</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Frequency</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Suprapubic
+                                    pain</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Gross
+                                    hematuria</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Urinary
+                                    incontinence</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Costovertebral
+                                    angle tenderness</span>
+                            </label><br>
+                        </td>
+                        <td style="width: 25%;font-size: 15px; padding-right: 111px;">
+                            <div class="radb">
+                                <input type="radio" name="fav_language1" value="HTML"><span
+                                    style="margin-left:10px;">Met</span><br>
+                                <input type="radio" name="fav_language1" value="HTML"><span
+                                    style="margin-left:10px;">NOT Met</span><br>
+                            </div>
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Urinary Tract Infection
+                                    <ul>
+                                        <li>
+                                            WITH Catheter
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width: 50%; font-size: 15px;">At least one of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Rigors</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Temp &gt;37.9
+                                    &#8451;
+                                    (100 &#8457;) or 1.5 &#8451; (2.4 &#8457;) above baseline</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New onset
+                                    delirium</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New
+                                    costovertebral angle tenderness</span>
+                            </label>
+                        </td>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="radb">
+                                <input type="radio" name="fav_language2" value="HTML"><span
+                                    style="margin-left:10px;">Met</span><br>
+                                <input type="radio" name="fav_language2" value="HTML"><span
+                                    style="margin-left:10px;">NOT Met</span><br>
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+            <div class="col-sm-12 dom">
+                Note: Residents with intermittent catheterization or condom catheter should be categorized as 'without
+                catheter'
+                Urine culture should be sent prior to starting antibiotics
+                Antibiotics should not be started for cloudy or foul smelling urine
+            </div>
+
+            <table class="table table-bordered bg-white ">
+                <thead class="">
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lower respiratory tract infection
+                                    <ul>
+                                        <li>
+                                            with temp &gt;38.9 &#8451; (102 &#8457;)
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td>At least one of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Productive
+                                    cough</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Respiratory rate
+                                    &gt;25 breaths / minute</span>
+                            </label>
+                        </td>
+                        <td style="width: 25%;font-size: 15px; padding-right: 109px;">
+                            <div class="radb">
+                                <input type="radio" name="fav_language3" value="HTML"><span
+                                    style="margin-left:10px;">Met</span><br>
+                                <input type="radio" name="fav_language3" value="HTML"><span
+                                    style="margin-left:10px;">NOT Met</span><br>
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lower Respiratory Infection
+                                    <ul>
+                                        <li>
+                                            with temp &gt;37.9 &#8451; (100 &#8457;) or 1.5 &#8451;<br>(2.4 &#8457;)
+                                            above baseline
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td>Both of the following criteria<br>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1" class="accu">Cough, AND</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2" class="accu">At least one of the following criteria</label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Pulse &gt;100
+                                    beats / minutes</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Delirium</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Rigors</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Respiratory rate
+                                    &gt;25 breaths / minute</span>
+                            </label><br>
+                        </td>
+                        <td style="width: 25%;font-size: 15px;">
+                            <input type="radio" name="fav_language4" value="HTML"><span
+                                style="margin-left:10px;">Met</span><br>
+                            <input type="radio" name="fav_language4" value="HTML"><span style="margin-left:10px;">NOT
+                                Met</span><br>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lower Respiratory Infection
+                                    <ul>
+                                        <li>
+                                            afebrile with COPD and<br>&gt;65yo
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width: 50%;font-size: 15px;">Both of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New or increased
+                                    cough</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Purulent sputum
+                                    production</span>
+                            </label>
+                        </td>
+                        <td style="width: 25%;font-size: 15px;">
+                            <input type="radio" name="fav_language5" value="HTML"><span
+                                style="margin-left:10px;">Met</span><br>
+                            <input type="radio" name="fav_language5" value="HTML"><span style="margin-left:10px;">NOT
+                                Met</span><br>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lower Respiratory Infection
+                                    <ul>
+                                        <li>
+                                            afebrile without COPD
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width: 50%;font-size: 15px;">All of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New cough</span>
+                            </label>
+                            <br>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Purulent sputum
+                                    production</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">At least one of
+                                    the following criteria</span>
+                            </label><br>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Delirium</span>
+                            </label>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Respiratory rate
+                                    &gt;25 breaths / minute</span>
+                            </label>
+                        </td>
+                        <td style="width: 25%;font-size: 15px;">
+                            <input type="radio" name="fav_language6" value="HTML"><span
+                                style="margin-left:10px;">Met</span><br>
+                            <input type="radio" name="fav_language6" value="HTML"><span style="margin-left:10px;">NOT
+                                Met</span><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lower Respiratory Infection
+                                    <ul>
+                                        <li>
+                                            with new infiltrate on chest<br>CXR consistent with
+                                            pneumonia
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width: 50%;font-size: 15px;">At least one of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Productive
+                                    cough</span>
+                            </label>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Temp &gt;37.9
+                                    &#8451;
+                                    (100 &#8457;) or 1.5 &#8451; (2.4 &#8457;) above baseline</span>
+                            </label><br>
+                            <label class="checkbox-inlines">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Respiratory rate
+                                    &gt;25 breaths / minute</span>
+                            </label>
+                        </td>
+                        <td style="width: 25%;font-size: 15px;">
+                            <input type="radio" name="fav_language7" value="HTML"><span
+                                style="margin-left:10px;">Met</span><br>
+                            <input type="radio" name="fav_language7" value="HTML"><span style="margin-left:10px;">NOT
+                                Met</span><br>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+            <div class="col-sm-12 dom">
+                Note: Consider ordering chest X-ray and CBC with differential for febrile residents with cough and any
+                of these criteria (HR &gt;100, worsening mental status, or rigors)
+                Antibiotics should not be used for up to 24 h after large-volume aspiration in those without COPD but
+                with temp &#8804;38.9&#8451; (102 &#8457;) and non-productive cough </div>
+
+            <table class="table table-bordered bg-white ">
+                <thead class="">
+                    <tr>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Skin and soft-tissue infection
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width:50;font-size: 15px;">Either one of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New or increasing
+                                    purulent drainage, OR</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">At least two of
+                                    the following criteria</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Redness
+                                    (erythema)</span>
+                            </label>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Temp &gt;37.9
+                                    &#8451;
+                                    (100 &#8457;) or 1.5 &#8451; (2.4 &#8457;) above baseline</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Tenderness</span>
+                            </label>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New or increasing
+                                    swelling at affected site</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Warmth</span>
+                            </label>
+                        </td>
+                        <td style="width: 25%;font-size: 15px;padding-right: 109px;">
+                            <input type="radio" name="fav_language9" value="HTML"><label
+                                style="margin-left:10px;">Met</label>
+                            <br>
+
+                            <input type="radio" name="fav_language9" value="HTML"><label style="margin-left:10px;">NOT
+                                Met</label>
+                            <br>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-sm-12 dom">
+                Note: These criteria do not apply to residents with burns
+                Surgical consultation and hospitalization are required for certain soft-tissue infections (e.g., necrotizing fasciitis or gas gangrene)
+                
+            </div>
+            <table class="table table-bordered bg-white ">
+                <thead class="">
+                    <tr>
+
+                    </tr>
+                </thead>
+
+                <thead>
+                    <tr>
+                        <td style="width: 25%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Fever where the Focus of Infection is
+                                    Unknown
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width:50%;font-size: 15px;">Both of the following criteria<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Temp &gt;37.9
+                                    &#8451;
+                                    (100 &#8457;) or 1.5 &#8451; (2.4 &#8457;) above baseline, AND</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">At least One of
+                                    the following criteria</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Rigors</span>
+                            </label>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Delirium</span>
+                            </label><br>
+
+                        </td>
+                        <td style="width: 25%;font-size: 15px;padding-right: 109px;">
+
+                            <input type="radio" name="fav_language10" value="HTML"><label
+                                style="margin-left:10px;">Met</label>
+                            <br>
+
+                            <input type="radio" name="fav_language10" value="HTML"><label style="margin-left:10px;">NOT
+                                Met</label>
+                            <br>
+                        </td>
+
+                    </tr>
+                </thead>
+            </table>
+            <div class="col-sm-12 dom">
+                Note: Antibiotic should not be started in residents with fever and altered mental status that does not
+                meet delirium criteria (e.g., reduced functional activities,
+                withdrawal, loss of appetite)
+            </div>
+
+
+
+
+
+            <!-- <div class="box-4">
+                <button class="box-5" onclick="window.print()">Save/ Print</button>
+                <button class="box-5" type="cancel" onclick="window.close()">Close</button>
+                <button class="box-5" type="cancel" onclick="window.close()">Cancel, I'll do this manually</button>
+            </div> -->
+        </form>
+    </div>
+    <script>n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("validationDefault05").innerHTML = m + "/" + d + "/" + y;</script>
+</body>
+
+</html>

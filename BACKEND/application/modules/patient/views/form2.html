@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgb(240, 238, 238);
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #009ffc;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .lab {
+            font-size: 18px;
+            padding-left: 25px;
+            padding-top: 29px;
+
+
+        }
+
+        .labs {
+
+
+            padding-left: 25px;
+            padding-top: 12px;
+            color: rgb(0, 0, 0);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 15px;
+        }
+
+        .box-0 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 391px;
+            margin-top: 7px;
+            border-radius: 20px;
+        }
+
+        .box-1 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 288px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .box-2 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 328px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .box-3 {
+            width: 100%;
+            background-color: #ffffff;
+            height: 400px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .box-4 {
+
+            margin-top: 20px;
+        }
+
+        .fonts {
+            width: 90%;
+            color: rgb(165, 165, 165);
+            font-size: 12px;
+            margin-left: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .font {
+            margin-left: 20px;
+            width: 90%;
+            color: rgb(165, 165, 165);
+            font-size: 12px;
+            margin-left: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .containers {
+            display: block;
+            position: relative;
+            padding-left: 36px;
+            padding-top: 0px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            width: 220px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+        }
+
+        /* Hide the browser's default checkbox */
+        .containers input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 4px;
+            left: 1px;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .containers:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .containers input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .containers input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .containers .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .containere {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default radio button */
+        .containere input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Create a custom radio button */
+        .checkmarks {
+            position: absolute;
+            top: 0;
+            left: 3px;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .containere:hover input~.checkmarks {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .containere input:checked~.checkmarks {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmarks:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .containere input:checked~.checkmarks:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .containere .checkmarks:after {
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .ufont {
+            font-size: 22px;
+            margin-left: 3px;
+        }
+
+        .container-fluid {
+            background-color: #f0ebeb;
+        }
+
+        .font1 {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+
+        }
+
+        .wfx {
+            margin-left: -131px;
+            margin-top: 185px;
+        }
+
+        .headline {
+            text-align: center;
+            font-size: 20px;
+            padding-top: 20px;
+        }
+
+        .box-5 {
+            background: linear-gradient(to bottom, #13295e 0%, #850947 100%);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .box-5:hover {
+            background-color: #45a049;
+        }
+        .fontsm {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 42px;
+           
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <form action="/action_page.php">
+<h6 class="fontsm">McGeer Criteria for Infection Surveillance List Urinary Tract Infection (updated 2020)  
+</h6>
+            <form>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <label for="validationDefault03" class="font1">Name/MR Number</label>
+                        <input type="text" class="form-control" id="validationDefault03"
+                            placeholder="Name/MR Number....." required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="validationDefault04" class="font1">Location</label>
+                        <input type="text" class="form-control" id="validationDefault04" placeholder="Location.."
+                            required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="validationDefault05" class="font1">Date</label>
+                        <!-- <p style="margin-top: 5px;" type="text" class="form-control" id="validationDefault05" ></p> -->
+                        <input type="text" class="form-control" id="validationDefault05" placeholder="MM/DD/YYYY"
+                            required>
+                    </div>
+                </div>
+            </form>
+            <div class="col-sm-12 bg-dark text-white" align="center" style="height: 50px; padding-top: 13px;">
+              Table 1. Constitutional Criteria for Infection
+
+            </div>
+            <table class="table table-bordered bg-white ">
+
+                <thead>
+                    <tr>
+                        <th>Fever</th>
+                        <th>Leukocytosis</th>
+                        <th>Acute Mental Status Change</th>
+                        <th>Acute Functional Decline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 20%;font-size: 15px;">Single oral temp &gt;37.8 &#8451;
+                            (100 &#8457;),<br>
+                            OR<br>
+
+                            Repeated oral temp &gt;37.2
+                            &#8451; (99 &#8457;),<br>
+                            OR<br>
+
+                            Single temp &gt;1.1 &#8451; (2 &#8457;)
+                            from baseline from any site</td>
+                        <td style="width: 30%;font-size: 15px;">&gt;14,000 WBC /
+                            mm 3 ,<br>
+                            OR<br>
+                            &gt;6% band,<br>
+                            OR<br>
+                            &#8805;1,500
+                            bands/mm</td>
+                        <td style="width: 30%;font-size: 15px;">Acute onset,<br>
+                            AND<br>
+                            Fluctuating course,<br>
+                            AND<br>
+                            Inattention,<br>
+                            AND<br>
+
+                            Either disorganized thinking,<br>
+
+                            OR<br>
+
+                            altered level of consciousness</td>
+                        <td style="width: 20%; font-size: 15px;">3-point increase in baseline ADL
+                            score according to the following
+                            items:<br>
+                            1. Bed mobility<br>
+                            2. Transfer<br>
+                            3. Locomotion within LTCF<br>
+                            4. Dressing<br>
+                            5. Toilet use<br>
+                            6. Personal hygiene<br>
+                            7. Eating<br>
+                            [Each scored from 0 (independent)
+                            to 4 (total dependence)]</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div class="col-sm-12 bg-dark text-white" align="center" style="height: 50px; padding-top: 13px;">
+                Urinary Tract Infection (UTI) Surveillance Definitions
+            </div>
+            <table class="table table-bordered bg-white ">
+
+                <thead>
+                    <tr>
+                        <th>Syndrome</th>
+                        <th>Criteria</th>
+                        <th>Comments</th>
+                        <th>Criteria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 20%;font-size: 15px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    UTI in
+                                resident
+                                WITHOUT
+                                catheter
+                                </label>
+                            </div>
+                        </td>
+                        <td style="width: 30%; font-size: 15px;">Both criteria 1 and 2 must be present:<br>
+                            <br>
+                            1. At least 1 of the following sub criteria:<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Acute dysuria or
+                                    acute pain, swelling, or
+                                    tenderness of the testes, epididymis, or prostate</span>
+                            </label>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Fever or
+                                    leukocytosis (Table 1)</span>
+                            </label>
+                            <br>
+                            AND<br>
+                            <br>
+                            At least 1 of the following subcriteria:<br>
+                            <br>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Acute costovertebral angle pain or tenderness</label><br>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Suprapubic pain</label><br>
+                            <input type="checkbox" id="other" name="gender" value="other">
+                            <label for="other">Gross hematuria</label><br>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male"> New or marked increase in incontinence</label><br>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">New or marked increase in urgency</label><br>
+                            <input type="checkbox" id="other" name="gender" value="other">
+                            <label for="other">New or marked increase in frequency</label> <br>
+                            <br>
+                            In the absence of fever or leukocystosis, then 2 or more of
+                            the following subcriteria:<br>
+                            <br>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Suprapubic pain</label><br>
+                            <input type="checkbox" id="other" name="gender" value="other">
+                            <label for="other">Gross hematuria</label><br>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">New or marked increase in incontinence</label><br>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female"> New or marked increase in incontinence</label><br>
+                            <input type="checkbox" id="other" name="gender" value="other">
+                            <label for="other">New or marked increase in urgency</label><br>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">New or marked increase in frequency</label><br>
+                            <br>
+                            AND<br>
+                            <br>
+                            2. 1 of the following subcriteria:<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s"> At least 10 5
+                                    cfu/mL of no more than 2 species of
+                                    microorganisms in a voided urine sample</span>
+                            </label>
+                            <br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s"> At least 10 2
+                                    cfu/mL of any number of organisms
+                                    in a specimen collected by in-and-out catheter</span>
+                            </label>
+                        </td>
+                        <td style="width: 30%; font-size: 15px;">UTI should be
+                            diagnosed when
+                            there are localizing
+                            genitourinary signs
+                            and symptoms and a
+                            positive urine culture
+                            result. A diagnosis of
+                            UTI can be made
+                            without localizing
+                            symptoms if a blood
+                            culture isolate is the
+                            same as the organism
+                            isolated from the
+                            urine and there is no
+                            alternate site of
+                            infection.
+                            <br>
+                            <br>
+                            In the absence of a
+                            clear alternate source
+                            of infection, fever or
+                            rigors with a positive
+                            urine culture result in
+                            the non-catheterized
+                            resident or acute
+                            confusion in the
+                            catheterized resident
+                            will often be treated
+                            as UTI.
+                            <br>
+                            <br>
+                            However, evidence
+                            suggests that most of
+                            these episodes are
+                            likely not due to
+                            infection of a urinary
+                            source.<br>
+                            <br>
+                            Urine specimens for
+                            culture should be
+                            processed as soon as
+                            possible, preferably
+                            within 1-2 h. If urine
+                            specimens cannot be
+                            processed within 30
+                            min of collection, they
+                            should be
+                            refrigerated.
+                            Refrigerated
+                            specimens should be
+                            cultured within 24 h.
+                        </td>
+                        <td style="width:20%">
+                            <input type="radio" name="fav_language1" value="HTML"><span
+                            style="margin-left:10px;">Met</span><br>
+                        <input type="radio" name="fav_language1" value="HTML"><span
+                            style="margin-left:10px;">NOT Met</span><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    UTI in
+                                resident
+                                WITH
+                                catheter
+                                    <ul>
+                                        <li>
+                                            (or if &lt;48h
+                                            after
+                                            removing
+                                            catheter) 
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </td>
+                        <td>Both criteria 1 and 2 must be present:<br>
+                            <br>
+                            1. At least 1 of the following subcriteria:<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s"> Fever, rigors,
+                                    or new-onset hypotension, with
+                                    no alternate site of infection</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s"> Either acute
+                                    change in mental status or acute
+                                    functional decline, with no alternate site of
+                                    infection (Table 1)</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">New-onset
+                                    suprapubic pain or costovertebral
+                                    angle pain or tenderness</span>
+                            </label><br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Purulent
+                                    discharge from around the catheter or
+                                    acute pain, swelling, or tenderness of the testes,
+                                    epididymis, or prostate</span>
+                            </label>
+                            <br>
+                            AND<br>
+                            <br>
+                            2.<br>
+                            <label class="checkbox-inlines ">
+                                <input type="checkbox" value="" class=""><span class="ml-2 checkbox-s">Urinary catheter
+                                    specimen culture with at least
+                                    10 5 cfu/mL of any organism(s)</span>
+                            </label>
+                        </td>
+                        <td>UTI should be
+                            diagnosed when
+                            there are localizing
+                            genitourinary signs
+                            and symptoms and a
+                            positive urine culture
+                            result. A diagnosis of
+                            UTI can be made
+                            without localizing
+                            symptoms if a blood
+                            culture isolate is the
+                            same as the organism
+                            isolated from the
+                            urine and there is no
+                            alternate site of
+                            infection.<br>
+                            <br>
+                            In the absence of a
+                            clear alternate source
+                            of infection, fever or
+                            rigors with a positive
+                            urine culture result in
+                            the non-catheterized
+                            resident or acute
+                            confusion in the
+                            catheterized resident
+                            will often be treated
+                            as UTI.<br>
+                            <br>
+                            However, evidence
+                            suggests that most of
+                            these episodes are
+                            likely not due to
+                            infection of a urinary
+                            source.<br>
+                            <br>
+                            Recent catheter
+                            trauma, catheter
+                            obstruction, or new-
+                            onset hematuria are
+                            useful localizing signs
+                            that are consistent
+                            with UTI but are not
+                            necessary for
+                            diagnosis. Urinary
+                            catheter specimens
+                            for culture should be
+                            collected following
+                            replacement of the
+                            catheter (if current
+                            catheter in place for
+                            &gt;14 days).
+                        </td>
+                        <td>  <input type="radio" name="fav_language2" value="HTML"><span
+                            style="margin-left:10px;">Met</span><br>
+                        <input type="radio" name="fav_language2" value="HTML"><span
+                            style="margin-left:10px;">NOT Met</span><br>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+            <div class="box-4">
+                <button class="box-5" onclick="window.print()">Save/ Print</button>
+                <button class="box-5" type="cancel" onclick="window.close()">Close</button>
+                <button class="box-5" type="cancel" onclick="window.close()">Cancel, I'll do this manually</button>
+            </div>
+        </form>
+    </div>
+
+<script>n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("validationDefault05").innerHTML = m + "/" + d + "/" + y;</script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  database:
+    image: mysql:5.7
+    container_name: idcare-database
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ./BACKEND/sql-files:/docker-entrypoint-initdb.d
+      - idcaredata:/var/lib/mysql
+    networks:
+      - idcare
+
+# Docker Networks
+networks:
+  idcare:
+    driver: bridge
+
+# Volumes
+volumes:
+  # Volume for DB
+  idcaredata:
+    driver: local

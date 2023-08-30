@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  # PMA
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD:  ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "2020:80"
+    depends_on: 
+      - database
+    networks:
+      - idcare
+
+# Docker Networks
+networks:
+  idcare:
+    driver: bridge

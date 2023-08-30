@@ -1,0 +1,82 @@
+1. complete patient module visible in data entry operator.
+2. add patient add data operator id.
+3. expoert patint add all field
+4. patient id random generate hogi 6 digit ki.
+5. import me patient id add hogi or unique patient id se hoga.
+6. export me patient id deni hai.
+7. import krte time parient ki id blank hogi wo new id random genrate hogi or jinki id blank hogi whi id hi upload hogi.
+ WIDGET KIT remove
+
+8. menu sequesnce.
+	1 dashboard
+	2 reports
+	3 patient
+	4 provider doctor
+	5 md stward
+	6 data operator
+	7 care unit
+	8 diagnosis (rename infections)
+	9 Antibiotic Name
+	10 admin setting
+
+ Provider Doctor
+
+ 10 all admin me font family "Open Sans" rkhna hai
+ 11 all admin me list me SR no or action me shorting remove krna hai.
+ 12 open model me both btn check krna hai design me
+ 13 dashboard me dikhana hai count or graph htana ha filter htana hai
+ 	1. total patient
+ 	2. total md 
+ 	3. total doctor
+ 	4 total care unit
+ 	5 total provider doctor
+ 	6 total infuction
+ 	7 total antibiotic
+ 	8 total patient added today
+
+ 14 Data Operator in remove profile image
+ 15 data operator list verified text chnage active inactive
+ 16 check all admin linking
+ 17 add data operator me adta opertaor ko add krge tb data op ko mail jayega id or password.
+ 18 data operator complete check all linking
+ 19 md stward & data operator me jo page add ka hai same whi page hoga.
+ 20 md staward add krge to admin ko email jayega id or password
+ 21 care unit add kereg to care unit ko email jayega
+ 22 in case of delete confirm message chnage show delete name example stywad miller delete.
+ 23 in case of edit or add opent same tab don't new tab.
+
+ patient module
+
+ 1. Note: Upload Patient by care unit (Remane => First, select care unit to upload the file.)
+ 2. in case import default import button or upload input hide goha ye sift care unit select krne ke bad hi show hoga.
+ 3. import and export ki file or button ek hi line me krna hai beach me line hogi. or labe hoga upload file or download file
+ 4. in case of download export patient add text message (Note: select care unit to download specific care unit's file or , overall file will be downloaded)
+4. download export name will be select care unit name or agar koi select nhi krte hai to all care unit patient list name hoga.
+5. in case add patient
+form change 
+
+form MD Steward list top me dena hai patient detail me
+
+
+MD Steward Recommendation
+me Initial DOT ko rname krna hai new DOT.
+6.patient list me filed show krna hai
+	1. patient id
+	2. care unit
+	3. provider doctor
+	4. md stward
+
+	sr no or patient id ko chota krn ahai space se.
+
+
+	7. all app me email list
+		1. data operator and md stward ko email jayega id or password.
+		2. reset password me email jaayega
+		3. data operator patient add krge tb notification generate  hoga jis md ko add kita hai patient me usko jayega. or notification me patient ki id bhi dena hai hidden me.
+		4. md styward recommanded krga tb Dta operator or care unit ko mail jayega.
+
+	8. reports me ek fileld add krna hai (name sheet me hai)		
+
+	9. admin login page me
+
+ 
